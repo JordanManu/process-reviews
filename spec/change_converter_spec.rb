@@ -54,4 +54,19 @@ describe ChangeGenerator do
       expect(change_generator.convert(0.11)).to eq [0.10, 0.01]
     end
   end
+
+  context 'Does not give out 0.01 or 0.05' do 
+
+    it 'rounds 0.05 to 0.10' do 
+      expect(change_generator.convert(0.05)).to eq [0.10]
+    end
+
+    it 'rounds 0.02 to 0.10' do 
+      expect(change_generator.convert(0.02)).to eq [0.10]
+    end
+
+    it 'rounds 0.09 to 0.10' do 
+      expect(change_generator.convert(0.09)).to eq [0.10]
+    end
+  end
 end

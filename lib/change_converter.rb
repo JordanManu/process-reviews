@@ -34,12 +34,19 @@ class ChangeGenerator
   def convert(money)
     result = []
     CHANGE.each do |c|
+      return small_change_round_up(money) == true ? result.push(money = 0.10) : ''
       while money >= c
         result.push(c)
         money = (money -= c).round(2)
       end
     end
     result
+  end
+
+  def small_change_round_up(money)
+    if money < 0.10
+      true
+    end
   end
 
 end
