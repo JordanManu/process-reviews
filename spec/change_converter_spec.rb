@@ -69,4 +69,7 @@ describe ChangeGenerator do
       expect(change_generator.convert(0.09)).to eq [0.10]
     end
   end
+
+  # Each unit of money has a quantity of 30, if one drops below 
+  context ''
 end
